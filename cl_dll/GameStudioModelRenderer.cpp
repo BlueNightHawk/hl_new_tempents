@@ -27,6 +27,8 @@
 #include "GameStudioModelRenderer.h"
 #include "Exports.h"
 
+#include "cl_tempents.h"
+
 //
 // Override the StudioModelRender virtual member functions here to implement custom bone
 // setup, blending, etc.
@@ -70,6 +72,10 @@ R_StudioDrawModel
 */
 int R_StudioDrawModel(int flags)
 {
+	if (g_TempEntMan.StudioDrawModel(flags) != 0)
+		return 1;
+
+	g_StudioRenderer.m_pCurrentEntity = IEngineStudio.GetCurrentEntity();
 	return static_cast<int>(g_StudioRenderer.StudioDrawModel(flags));
 }
 

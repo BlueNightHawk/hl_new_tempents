@@ -64,6 +64,12 @@
     <Filter Include="Source Files\cl_dll\particleman">
       <UniqueIdentifier>{7085339d-2b33-4cdf-846c-0e4c7d33add8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\cl_dll\tempentities">
+      <UniqueIdentifier>{c30bbba5-468f-4986-963f-4847bb57a9f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tempentities">
+      <UniqueIdentifier>{0a082015-3dcb-4f54-b724-0172e2906631}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\crossbow.cpp">
@@ -320,6 +326,18 @@
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\particleman\CBaseParticle.cpp">
       <Filter>Source Files\cl_dll\particleman</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\cl_tempents.cpp">
+      <Filter>Source Files\cl_dll\tempentities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\cl_spriterenderer.cpp">
+      <Filter>Source Files\cl_dll\tempentities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\cl_entity.cpp">
+      <Filter>Source Files\cl_dll\tempentities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\cl_studiorender.cpp">
+      <Filter>Source Files\cl_dll\tempentities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -595,6 +613,9 @@
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\particleman\CBaseParticle.h">
       <Filter>Header Files\cl_dll\particleman</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\cl_tempents.h">
+      <Filter>Header Files\tempentities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

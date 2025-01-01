@@ -21,6 +21,8 @@
 #include "StudioModelRenderer.h"
 #include "GameStudioModelRenderer.h"
 
+#include "cl_tempents.h"
+
 extern cvar_t* tfc_newmodels;
 
 extern extra_player_info_t g_PlayerExtraInfo[MAX_PLAYERS_HUD + 1];
@@ -1121,7 +1123,7 @@ bool CStudioModelRenderer::StudioDrawModel(int flags)
 	alight_t lighting;
 	Vector dir;
 
-	m_pCurrentEntity = IEngineStudio.GetCurrentEntity();
+	//m_pCurrentEntity = IEngineStudio.GetCurrentEntity();
 	IEngineStudio.GetTimes(&m_nFrameCount, &m_clTime, &m_clOldTime);
 	IEngineStudio.GetViewInfo(m_vRenderOrigin, m_vUp, m_vRight, m_vNormal);
 	IEngineStudio.GetAliasScale(&m_fSoftwareXScale, &m_fSoftwareYScale);
@@ -1696,7 +1698,8 @@ void CStudioModelRenderer::StudioRenderFinal_Hardware()
 	{
 		for (i = 0; i < m_pStudioHeader->numbodyparts; i++)
 		{
-			IEngineStudio.StudioSetupModel(i, (void**)&m_pBodyPart, (void**)&m_pSubModel);
+		//	IEngineStudio.StudioSetupModel(i, (void**)&m_pBodyPart, (void**)&m_pSubModel);
+			StudioSetupModel(i, (void**)&m_pBodyPart, (void**)&m_pSubModel);
 
 			if (m_fDoInterp)
 			{

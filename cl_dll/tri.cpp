@@ -20,7 +20,10 @@
 
 #include "particleman.h"
 #include "tri.h"
+
 extern IParticleMan* g_pParticleMan;
+
+#include "cl_tempents.h"
 
 /*
 =================
@@ -47,7 +50,7 @@ Render any triangles with transparent rendermode needs here
 void DLLEXPORT HUD_DrawTransparentTriangles()
 {
 	//	RecClDrawTransparentTriangles();
-
+	g_TempEntMan.DrawSpriteTempEnts();
 
 	if (g_pParticleMan)
 		g_pParticleMan->Update();

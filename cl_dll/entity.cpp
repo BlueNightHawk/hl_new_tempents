@@ -15,6 +15,9 @@
 #include "Exports.h"
 
 #include "particleman.h"
+
+#include "cl_tempents.h"
+
 extern IParticleMan* g_pParticleMan;
 
 void Game_AddObjects();
@@ -388,6 +391,8 @@ void DLLEXPORT HUD_TempEntUpdate(
 	if (g_pParticleMan)
 		g_pParticleMan->SetVariables(cl_gravity, vAngles);
 
+	g_TempEntMan.SetupTempEnts(ppTempEntFree, ppTempEntActive);
+
 	// Nothing to simulate
 	if (!*ppTempEntActive)
 		return;
@@ -716,7 +721,7 @@ void DLLEXPORT HUD_TempEntUpdate(
 			// Cull to PVS (not frustum cull, just PVS)
 			if ((pTemp->flags & FTENT_NOMODEL) == 0)
 			{
-				if (0 == Callback_AddVisibleEntity(&pTemp->entity))
+				if (0 == g_TempEntMan.AddVisibleEntity(&pTemp->entity))
 				{
 					if ((pTemp->flags & FTENT_PERSIST) == 0)
 					{
@@ -732,6 +737,8 @@ void DLLEXPORT HUD_TempEntUpdate(
 finish:
 	// Restore state info
 	gEngfuncs.pEventAPI->EV_PopPMStates();
+
+	g_TempEntMan.SortTransparentEntities();
 }
 
 /*

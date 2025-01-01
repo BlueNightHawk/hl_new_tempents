@@ -20,6 +20,8 @@
 #include "hltv.h"
 #include "Exports.h"
 
+#include "cl_tempents.h"
+
 int CL_IsThirdPerson();
 void CL_CameraOffset(float* ofs);
 
@@ -1663,6 +1665,8 @@ void DLLEXPORT V_CalcRefdef(struct ref_params_s* pparams)
 	}
 #endif
 */
+
+	g_TempEntMan.refdef = *pparams;
 }
 
 /*

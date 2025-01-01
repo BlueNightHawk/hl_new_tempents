@@ -38,6 +38,8 @@
 #include "vgui_TeamFortressViewport.h"
 #include "filesystem_utils.h"
 
+#include "cl_tempents.h"
+
 cl_enginefunc_t gEngfuncs;
 CHud gHUD;
 TeamFortressViewport* gViewPort = NULL;
@@ -173,6 +175,8 @@ int DLLEXPORT HUD_VidInit()
 
 	VGui_Startup();
 
+	g_TempEntMan.InitTempEnts();
+
 	return 1;
 }
 
@@ -192,6 +196,8 @@ void DLLEXPORT HUD_Init()
 	InitInput();
 	gHUD.Init();
 	Scheme_Init();
+
+	g_TempEntMan.Init();
 }
 
 
